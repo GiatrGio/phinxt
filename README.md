@@ -1,4 +1,4 @@
-# Openvolt API
+# PHINXT API
 
 API with a single endpoint to calculate the movement of a cleaning robotic hoover in a room.
 
@@ -25,8 +25,8 @@ Follow these steps to set up and run the project locally.
 ### Clone the Repository
 
 ```bash
-git clone https://github.com/GiatrGio/openvolt.git
-cd openvolt
+git clone https://github.com/GiatrGio/phinxt.git
+cd phinxt
 ```
 
 ### Build the Project
@@ -42,9 +42,10 @@ mvn spring-boot:run
 ```
 
 The application will be accessible at `http://localhost:8080`.
+Swagger UI will be accessible at http://localhost:8080/swagger-ui.html
 
 ## API Endpoints
 
-### Energy Data Endpoints
+### Movement calculation endpoint
 
-- Get building energy data: GET `http://localhost:8080/api/energyData/building`
+- Get final position and cleaning spots endpoint: GET `http://localhost:8080/api/energyData/building`
