@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 
+import static com.example.phinxt.utils.TestUtils.generateSampleInput;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class HooverServiceTest {
@@ -21,15 +22,7 @@ class HooverServiceTest {
 
     @Test
     void testCleanRoom_BaseCase() {
-        HooverCleanInput input = new HooverCleanInput();
-        input.setRoomSize(Arrays.asList(5,5));
-        input.setCoords(Arrays.asList(1, 2));
-        input.setPatches(Arrays.asList(
-                Arrays.asList(1, 0),
-                Arrays.asList(2, 2),
-                Arrays.asList(2, 3)
-        ));
-        input.setInstructions("NNESEESWNWW");
+        HooverCleanInput input = generateSampleInput();
 
         HooverCleanResponse response = hooverService.cleanRoom(input);
 

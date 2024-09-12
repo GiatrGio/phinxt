@@ -41,11 +41,17 @@ mvn clean install
 mvn spring-boot:run
 ```
 
+### Run all Tests
+```bash
+mvn test
+```
+
 The application will be accessible at `http://localhost:8080`.
+
 Swagger UI will be accessible at http://localhost:8080/swagger-ui.html
 
 ## API Endpoints
 
 ### Movement calculation endpoint
 
-- Get final position and cleaning spots endpoint: GET `http://localhost:8080/api/energyData/building`
+- Get final position and cleaning spots endpoint: POST `http://localhost:8080/hoover/cleanRoom`

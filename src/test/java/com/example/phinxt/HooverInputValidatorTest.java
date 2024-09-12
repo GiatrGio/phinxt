@@ -10,6 +10,7 @@ import java.util.Collections;
 import java.util.List;
 
 import static com.example.phinxt.utils.HooverInputValidator.validateInput;
+import static com.example.phinxt.utils.TestUtils.generateSampleInput;
 
 class HooverInputValidatorTest {
 
@@ -24,7 +25,9 @@ class HooverInputValidatorTest {
         );
 
         Assertions.assertEquals(exception.getClass(), ApplicationException.class);
-        Assertions.assertEquals("400 BAD_REQUEST \"Letter A in instructions is invalid.\"", exception.getMessage());
+        Assertions.assertEquals(
+                "400 BAD_REQUEST \"Letter A in instructions is invalid.\"",
+                exception.getMessage());
     }
 
     @Test
@@ -38,7 +41,9 @@ class HooverInputValidatorTest {
         );
 
         Assertions.assertEquals(exception.getClass(), ApplicationException.class);
-        Assertions.assertEquals("400 BAD_REQUEST \"Room size must be a list of two positive integers.\"", exception.getMessage());
+        Assertions.assertEquals(
+                "400 BAD_REQUEST \"Room size must be a list of two positive integers.\"",
+                exception.getMessage());
     }
 
     @Test
@@ -52,7 +57,9 @@ class HooverInputValidatorTest {
         );
 
         Assertions.assertEquals(exception.getClass(), ApplicationException.class);
-        Assertions.assertEquals("400 BAD_REQUEST \"Initial hoover position must be a list of two integers.\"", exception.getMessage());
+        Assertions.assertEquals(
+                "400 BAD_REQUEST \"Initial hoover position must be a list of two integers.\"",
+                exception.getMessage());
     }
 
     @Test
@@ -66,7 +73,9 @@ class HooverInputValidatorTest {
         );
 
         Assertions.assertEquals(exception.getClass(), ApplicationException.class);
-        Assertions.assertEquals("400 BAD_REQUEST \"Initial hoover position is outside the room boundaries.\"", exception.getMessage());
+        Assertions.assertEquals(
+                "400 BAD_REQUEST \"Initial hoover position is outside the room boundaries.\"",
+                exception.getMessage());
     }
 
     @Test
@@ -84,7 +93,9 @@ class HooverInputValidatorTest {
         );
 
         Assertions.assertEquals(exception.getClass(), ApplicationException.class);
-        Assertions.assertEquals("400 BAD_REQUEST \"Patch location [6, 3] is outside the room boundaries.\"", exception.getMessage());
+        Assertions.assertEquals(
+                "400 BAD_REQUEST \"Patch location [6, 3] is outside the room boundaries.\"",
+                exception.getMessage());
     }
 
     @Test
@@ -98,7 +109,9 @@ class HooverInputValidatorTest {
         );
 
         Assertions.assertEquals(exception.getClass(), ApplicationException.class);
-        Assertions.assertEquals("400 BAD_REQUEST \"Patches of dirt cannot be null or empty.\"", exception.getMessage());
+        Assertions.assertEquals(
+                "400 BAD_REQUEST \"Patches of dirt cannot be null or empty.\"",
+                exception.getMessage());
     }
 
     @Test
@@ -115,19 +128,8 @@ class HooverInputValidatorTest {
         );
 
         Assertions.assertEquals(exception.getClass(), ApplicationException.class);
-        Assertions.assertEquals("400 BAD_REQUEST \"Each patch must be a list of two integers representing coordinates.\"", exception.getMessage());
-    }
-
-    private static HooverCleanInput generateSampleInput() {
-        HooverCleanInput input = new HooverCleanInput();
-        input.setRoomSize(Arrays.asList(5,5));
-        input.setCoords(Arrays.asList(1, 2));
-        input.setPatches(Arrays.asList(
-                Arrays.asList(1, 0),
-                Arrays.asList(2, 2),
-                Arrays.asList(2, 3)
-        ));
-        input.setInstructions("NNESEESWNWW");
-        return input;
+        Assertions.assertEquals(
+                "400 BAD_REQUEST \"Each patch must be a list of two integers representing coordinates.\"",
+                exception.getMessage());
     }
 }

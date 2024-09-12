@@ -6,6 +6,8 @@ import com.example.phinxt.services.HooverService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,6 +20,7 @@ import static com.example.phinxt.utils.HooverInputValidator.validateInput;
 public class HooverResource {
 
     private final HooverService hooverService;
+    private static final Logger logger = LoggerFactory.getLogger(HooverResource.class);
 
     public HooverResource(HooverService hooverService) {
         this.hooverService = hooverService;
@@ -30,8 +33,8 @@ public class HooverResource {
     })
     @PostMapping("/cleanRoom")
     public HooverCleanResponse cleanRoom(@RequestBody HooverCleanInput input) {
+        logger.info("Start cleaning room");
         validateInput(input);
         return hooverService.cleanRoom(input);
     }
-
 }
