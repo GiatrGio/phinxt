@@ -34,7 +34,7 @@ public class HooverService {
             cleanedPatches = cleanNewPositionIfNeeded(newHooverPosition, patches, cleanedPatches);
         }
 
-
+        logger.info("Return hoover final position and cleaned patches");
         return new HooverCleanResponse(List.of(hooverPositionX, hooverPositionY), cleanedPatches);
     }
 
@@ -63,7 +63,6 @@ public class HooverService {
                         HttpStatus.BAD_REQUEST, String.format("Letter %s in instructions is invalid.", instruction));
         }
 
-        logger.info("Return hoover final position and cleaned patches");
         return new int[]{hooverPositionX, hooverPositionY};
     }
 
