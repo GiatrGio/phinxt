@@ -26,12 +26,13 @@ public class HooverResource {
         this.hooverService = hooverService;
     }
 
+    @PostMapping("/cleanRoom")
     @Operation(summary = "Gets number of cleaned patches of dirt and final position of hoover after running instructions")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Successful operation"),
+            @ApiResponse(responseCode = "400", description = "Input validation error"),
             @ApiResponse(responseCode = "500", description = "Unknown error encountered")
     })
-    @PostMapping("/cleanRoom")
     public HooverCleanResponse cleanRoom(@RequestBody HooverCleanInput input) {
         logger.info("Start cleaning room");
         validateInput(input);

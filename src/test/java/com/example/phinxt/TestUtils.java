@@ -1,4 +1,4 @@
-package com.example.phinxt.utils;
+package com.example.phinxt;
 
 import com.example.phinxt.models.HooverCleanInput;
 

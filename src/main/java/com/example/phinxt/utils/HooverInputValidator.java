@@ -83,8 +83,8 @@ public class HooverInputValidator {
     }
 
     private static void validateInitialHooverCoordinates(List<Integer> coord, List<Integer> roomSize) {
-        logger.warn("Initial hoover position is outside the room boundaries.");
         if (!isValidCoordinate(coord, roomSize)) {
+            logger.warn("Initial hoover position is outside the room boundaries.");
             throw new ApplicationException(
                     HttpStatus.BAD_REQUEST, "Initial hoover position is outside the room boundaries.");
         }

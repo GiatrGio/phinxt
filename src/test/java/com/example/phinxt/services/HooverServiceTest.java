@@ -1,14 +1,13 @@
-package com.example.phinxt;
+package com.example.phinxt.services;
 
 import com.example.phinxt.models.HooverCleanInput;
 import com.example.phinxt.models.HooverCleanResponse;
-import com.example.phinxt.services.HooverService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 
-import static com.example.phinxt.utils.TestUtils.generateSampleInput;
+import static com.example.phinxt.TestUtils.generateSampleInput;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class HooverServiceTest {

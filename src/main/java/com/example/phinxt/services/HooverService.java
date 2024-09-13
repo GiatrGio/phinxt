@@ -3,6 +3,8 @@ package com.example.phinxt.services;
 import com.example.phinxt.exceptions.ApplicationException;
 import com.example.phinxt.models.HooverCleanInput;
 import com.example.phinxt.models.HooverCleanResponse;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +14,8 @@ import java.util.stream.Collectors;
 
 @Service
 public class HooverService {
+
+    private static final Logger logger = LoggerFactory.getLogger(HooverService.class);
 
     public HooverCleanResponse cleanRoom(HooverCleanInput hooverCleanInput) {
         int cleanedPatches = 0;
@@ -29,6 +33,7 @@ public class HooverService {
 
             cleanedPatches = cleanNewPositionIfNeeded(newHooverPosition, patches, cleanedPatches);
         }
+
 
         return new HooverCleanResponse(List.of(hooverPositionX, hooverPositionY), cleanedPatches);
     }
@@ -58,6 +63,7 @@ public class HooverService {
                         HttpStatus.BAD_REQUEST, String.format("Letter %s in instructions is invalid.", instruction));
         }
 
+        logger.info("Return hoover final position and cleaned patches");
         return new int[]{hooverPositionX, hooverPositionY};
     }
 

@@ -1,4 +1,4 @@
-package com.example.phinxt;
+package com.example.phinxt.utils;
 
 import com.example.phinxt.exceptions.ApplicationException;
 import com.example.phinxt.models.HooverCleanInput;
@@ -10,7 +10,7 @@ import java.util.Collections;
 import java.util.List;
 
 import static com.example.phinxt.utils.HooverInputValidator.validateInput;
-import static com.example.phinxt.utils.TestUtils.generateSampleInput;
+import static com.example.phinxt.TestUtils.generateSampleInput;
 
 class HooverInputValidatorTest {
 
